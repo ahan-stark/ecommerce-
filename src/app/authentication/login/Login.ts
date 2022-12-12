@@ -1,4 +1,4 @@
 export class Login{
-    userName!:String;
-    userPassWord!:String;
+    userName!:string;
+    userPassWord!:string;
 }

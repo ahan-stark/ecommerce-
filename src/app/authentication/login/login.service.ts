@@ -17,6 +17,6 @@ export class LoginService {
   }
 
   getProducts() {
-    return this.http.get(`http://localhost:8080/products/2`);
+    return this.http.get(`/products/2`);
   }
 }
