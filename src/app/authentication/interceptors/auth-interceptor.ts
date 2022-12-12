@@ -9,7 +9,7 @@ import { getCookie } from 'src/app/utils/cookie-utils';
 export class AuthInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
-    if (!req.url.includes('login')) {
+    if (!req.url.includes('login') || !req.url.includes('register')) {
         req = req.clone({
             setHeaders: {
               'Content-Type' : 'application/json; charset=utf-8',
