@@ -1,6 +1,6 @@
 export class Products {
-  productId!: Number;
-  productName!: String;
-  productCategoryId!: String;
-  productImage!: String;
+  productId!: number;
+  productName!: string;
+  productCategoryId!: string;
+  productImage!: string;
 }
