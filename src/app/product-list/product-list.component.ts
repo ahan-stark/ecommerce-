@@ -20,6 +20,17 @@ export class ProductListComponent implements OnInit {
         };
       });
     });
+
+    // .subscribe((products: any[]) => {
+    //   this.products = products.map((products) => {
+    //     return {
+    //       productId: products.productId,
+    //       productName: products.productName,
+    //       productCategoryId: products.productCategoryId,
+    //       productImage: products.productImage,
+    //     };
+    //   });
+    // });
   }
   ngOnInit(): void {}
 }
