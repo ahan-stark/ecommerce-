@@ -21,7 +21,7 @@ export class LoginComponent {
     this.loginService.login(loginDetails).subscribe(loginResponse=>{
       console.log(loginResponse);
       setCookie('token', loginResponse.authenticationToken);
-      this.router.navigate(['products']);
+      // this.router.navigate(['products']);
       // this.loginService.getProducts().subscribe(res => {
       //   console.log(res);
         

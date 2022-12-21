@@ -17,6 +17,7 @@ export class ProductListComponent implements OnInit {
           productName: products.productName,
           productCategoryId: products.productCategoryId,
           productImage: products.productImage,
+          productPrice: products.productPrice,
         };
       });
     });

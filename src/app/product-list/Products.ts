@@ -3,4 +3,5 @@ export class Products {
   productName!: string;
   productCategoryId!: string;
   productImage!: string;
+  productPrice!: number;
 }
