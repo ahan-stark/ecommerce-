@@ -10,6 +10,8 @@ import { LoginComponent } from './authentication/login/login.component';
 import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AuthInterceptor } from './authentication/interceptors/auth-interceptor';
+import { CategoryComponent } from './category/category.component';
+import { IndividualCategoryComponent } from './category/individual-category/individual-category.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,8 @@ import { AuthInterceptor } from './authentication/interceptors/auth-interceptor'
     IndividualProductItemsComponent,
     AuthenticationComponent,
     LoginComponent,
+    CategoryComponent,
+    IndividualCategoryComponent,
   ],
   imports: [
     BrowserModule,
