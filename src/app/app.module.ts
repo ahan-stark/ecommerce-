@@ -13,6 +13,8 @@ import { AuthInterceptor } from './authentication/interceptors/auth-interceptor'
 import { CategoryComponent } from './category/category.component';
 import { IndividualCategoryComponent } from './category/individual-category/individual-category.component';
 import { PreviewProductsComponent } from './preview-products/preview-products.component';
+import { CartComponent } from './cart/cart.component';
+import { IndividualCartItemsComponent } from './cart/individual-cart-items/individual-cart-items.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,8 @@ import { PreviewProductsComponent } from './preview-products/preview-products.co
     CategoryComponent,
     IndividualCategoryComponent,
     PreviewProductsComponent,
+    CartComponent,
+    IndividualCartItemsComponent,
   ],
   imports: [
     BrowserModule,
