@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Category } from './Category';
-import { CategoryService } from './category.service';
+import { CategoryService } from '../services/category.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-category',
@@ -9,7 +10,7 @@ import { CategoryService } from './category.service';
 })
 export class CategoryComponent {
   categories: Category[] = [];
-  constructor(private categoryservice: CategoryService) {
+  constructor(private categoryservice: CategoryService,private router:Router) {
     this.categoryservice.getCategories().subscribe((categories: any[]) => {
       this.categories = categories.map((categories) => {
         return {
@@ -19,5 +20,8 @@ export class CategoryComponent {
         };
       });
     });
+  }
+  goToProducts(categoryId:number){
+    this.router.navigate(['products',categoryId])
   }
 }

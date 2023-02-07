@@ -12,17 +12,17 @@ export class CategoryService {
       {
         categoryId: 1,
         categoryName: 'Shoes',
-        categoryImage: 'categoryShoe.jpg',
+        categoryImage: 'https://m.media-amazon.com/images/I/71ZSYJXb0GL._UY625_.jpg',
       },
       {
         categoryId: 2,
-        categoryName: 'watches',
-        categoryImage: 'categoryWatch.jpg',
+        categoryName: 'mobile',
+        categoryImage: 'https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-14-pro-finish-select-202209-6-7inch-gold?wid=2560&hei=1440&fmt=p-jpg&qlt=80&.v=1663703841907',
       },
       {
         categoryId: 3,
-        categoryName: 'fashion t-shirts',
-        categoryImage: 'categoryTshirt.jpg',
+        categoryName: 'laptop',
+        categoryImage: 'https://rukminim1.flixcart.com/image/416/416/xif0q/computer/x/o/u/-original-imaghkk994ybh4fh.jpeg?q=70',
       },
     ];
     return of(categories);

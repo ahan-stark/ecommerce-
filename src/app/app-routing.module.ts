@@ -8,9 +8,9 @@ import { ProductListComponent } from './product-list/product-list.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: 'products', component: ProductListComponent },
+  { path: 'products/:categoryId', component: ProductListComponent },
   { path: 'category', component: CategoryComponent },
-  { path: 'preview', component: PreviewProductsComponent },
+  { path: 'product-preview/:productId', component: PreviewProductsComponent },
   { path: 'cart', component: CartComponent },
 ];
 

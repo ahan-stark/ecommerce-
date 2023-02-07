@@ -1,5 +1,6 @@
 <div class="preview-product">
-  <h2>{{ previewProduct.productName }}</h2>
-  <img src="assets/images/{{ previewProduct.productImage }}" />
-  <h5>{{ previewProduct.productPrice }}</h5>
+        <h1>{{ particularProduct?.productName }}</h1>
+        <img src="{{ particularProduct?.productImage }}" alt="network error" />
+        <h3>{{ particularProduct?.productPrice }}</h3>
+        <button (click)="addToCart(particularProduct?.productId)">Buy</button>
 </div>

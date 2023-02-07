@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Cart } from './Cart';
-import { CartService } from './cart.service';
+import { Products } from '../Products';
+import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'app-cart',
@@ -8,9 +8,11 @@ import { CartService } from './cart.service';
   styleUrls: ['./cart.component.css'],
 })
 export class CartComponent {
-  cart: Cart[] = [];
+  cart: Products[] = [];
+  price: number = 0;
+  totalPrice: number = 0;
   constructor(private cartService: CartService) {
-    this.cartService.getCartItems().subscribe((cart: any[]) => {
+    this.cartService.getCartItems().subscribe((cart: Products[]) => {
       this.cart = cart.map((cart) => {
         return {
           productId: cart.productId,
@@ -21,5 +23,9 @@ export class CartComponent {
         };
       });
     });
+    this.cart.forEach((item: Products) => {
+      this.price += item.productPrice;
+    });
+    this.totalPrice=this.price+100;
   }
 }

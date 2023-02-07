@@ -1,4 +1,19 @@
-/* You can add global styles to this file, and also import other style files */
-*{
-    background-color: black;
+img{
+    width: 25%;
+    height: 15em
+}
+h1, h3, h4{
+    text-align: center;
+}
+img{
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    cursor: pointer;
+}
+button{
+    margin-left: 48% !important;
+}
+body{
+    text-align: center;
 }

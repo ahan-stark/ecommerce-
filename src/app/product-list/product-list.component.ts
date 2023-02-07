@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductService } from './product-service.service';
-import { Products } from './Products';
+import { ActivatedRoute, Route, Router } from '@angular/router';
+import { ProductService } from '../services/product.service';
+import { Products } from '../Products';
 
 @Component({
   selector: 'app-product-list',
@@ -9,7 +10,8 @@ import { Products } from './Products';
 })
 export class ProductListComponent implements OnInit {
   products: Products[] = [];
-  constructor(private productService: ProductService) {
+  categoryCondition:string|null;
+  constructor(private productService: ProductService, private route:ActivatedRoute,private router:Router) {
     this.productService.getProducts().subscribe((products: any[]) => {
       this.products = products.map((products) => {
         return {
@@ -21,17 +23,11 @@ export class ProductListComponent implements OnInit {
         };
       });
     });
-
-    // .subscribe((products: any[]) => {
-    //   this.products = products.map((products) => {
-    //     return {
-    //       productId: products.productId,
-    //       productName: products.productName,
-    //       productCategoryId: products.productCategoryId,
-    //       productImage: products.productImage,
-    //     };
-    //   });
-    // });
+     this.categoryCondition=this.route.snapshot.paramMap.get('categoryId');
+    
+  }
+  productPreview(productId:number){
+    this.router.navigate(['product-preview',productId]);  
   }
   ngOnInit(): void {}
 }
