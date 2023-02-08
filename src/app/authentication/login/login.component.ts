@@ -1,7 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { setCookie } from 'src/app/utils/cookie-utils';
-import { Login } from './Login';
 import { LoginService } from './login.service';
 
 @Component({

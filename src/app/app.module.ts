@@ -12,7 +12,6 @@ import { AuthInterceptor } from './authentication/interceptors/auth-interceptor'
 import { CategoryComponent } from './category/category.component';
 import { PreviewProductsComponent } from './preview-products/preview-products.component';
 import { CartComponent } from './cart/cart.component';
-import { HomeComponent } from './home/home.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
@@ -24,7 +23,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     CategoryComponent,
     PreviewProductsComponent,
     CartComponent,
-    HomeComponent,
     ],
   imports: [
     BrowserModule,
