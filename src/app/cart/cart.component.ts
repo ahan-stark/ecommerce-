@@ -28,4 +28,7 @@ export class CartComponent {
     });
     this.totalPrice=this.price+100;
   }
+  book(){
+    window.alert('booked successfully');
+  }
 }

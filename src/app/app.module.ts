@@ -12,6 +12,8 @@ import { AuthInterceptor } from './authentication/interceptors/auth-interceptor'
 import { CategoryComponent } from './category/category.component';
 import { PreviewProductsComponent } from './preview-products/preview-products.component';
 import { CartComponent } from './cart/cart.component';
+import { HomeComponent } from './home/home.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -22,12 +24,14 @@ import { CartComponent } from './cart/cart.component';
     CategoryComponent,
     PreviewProductsComponent,
     CartComponent,
+    HomeComponent,
     ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgbModule
   ],
   providers: [{
     provide : HTTP_INTERCEPTORS,
