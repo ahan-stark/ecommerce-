@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Route } from '@angular/router';
-import { Products } from '../Products';
+import { Products } from '../Interface';
 import { ProductService } from '../services/product.service';
 
 @Component({
@@ -10,15 +10,13 @@ import { ProductService } from '../services/product.service';
 })
 export class PreviewProductsComponent {
   products: Products[] = [];
-  // particularProduct: Products[] = [];
-  productId: string | null;
-  particularProduct: Products | undefined;
+  productId: string;
   constructor(
     private productService: ProductService,
     private route: ActivatedRoute
   ) {
-    this.productId = this.route.snapshot.paramMap.get('productId');
-    this.productService.getProducts().subscribe((products: Products[]) => {
+    this.productId = this.route.snapshot.paramMap.get('productId') as string;
+    this.productService.getIndividualproduct(parseInt(this.productId)).subscribe((products: Products[]) => {
       this.products = products.map((products) => {
         return {
           productId: products.productId,
@@ -28,11 +26,6 @@ export class PreviewProductsComponent {
           productPrice: products.productPrice,
         };
       });
-    });
-    this.products.forEach((item: Products) => {
-      if (item.productId == Number(this.productId)) {
-        this.particularProduct = item;
-      }
     });
   }
   addToCart(productId:number|undefined){

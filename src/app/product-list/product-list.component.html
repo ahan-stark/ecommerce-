@@ -1,11 +1,9 @@
 <h1>Product List</h1>
 <div *ngFor="let product of products">
-  <div *ngIf="categoryCondition == product.productCategoryId">
-    <a (click)="productPreview(product.productId)">
+  <a (click)="productPreview(product.productId)">
     <img src="{{ product.productImage }}" alt="network error" />
   </a>
-    <h4>{{ product.productName }}</h4>
-    <h3>{{ product.productPrice }}</h3>
-    <button (click)="productPreview(product.productId)">Preview</button>
-  </div>
+  <h4>{{ product.productName }}</h4>
+  <h3>{{ product.productPrice }}</h3>
+  <button (click)="productPreview(product.productId)">Preview</button>
 </div>

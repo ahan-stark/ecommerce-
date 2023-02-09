@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { Category } from './Category';
 import { CategoryService } from '../services/category.service';
 import { Router } from '@angular/router';
+import { Category } from '../Interface';
 
 @Component({
   selector: 'app-category',
