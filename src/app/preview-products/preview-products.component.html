@@ -2,5 +2,11 @@
         <img src="{{ products.productImage }}" alt="network error" />
         <h1>{{products.productName}}</h1>
         <h3>{{ products.productPrice }}</h3>
-        <button (click)="addToCart(products.productId)">Buy</button>
+        <div *ngIf="showAddTocart;else removeFromcart">
+                <button (click)="addToCart(products.productId)">Add To Cart</button>    
+        </div>
+        <ng-template #removeFromcart>
+                <button>Remove From  Cart</button>
+        </ng-template>
+        
 </div>

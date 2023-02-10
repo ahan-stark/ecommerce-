@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Route } from '@angular/router';
 import { Products } from '../Interface';
+import { CartService } from '../services/cart.service';
 import { ProductService } from '../services/product.service';
 
 @Component({
@@ -11,9 +12,11 @@ import { ProductService } from '../services/product.service';
 export class PreviewProductsComponent {
   products!: Products;
   productId: string;
+  showAddTocart:boolean=true;
   constructor(
     private productService: ProductService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private cartService:CartService
   ) {
     this.productId = this.route.snapshot.paramMap.get('productId') as string;
     this.productService
@@ -21,11 +24,17 @@ export class PreviewProductsComponent {
       .subscribe((preview: Products) => {
         this.products = preview;
       });
+      this.cartService.checkIfproductsExists(1,parseInt(this.productId)).subscribe((data)=>{
+        if(data){
+            this.showAddTocart=false;
+        }
+      });
+    
   }
   addToCart(productId: number | undefined) {
     window.alert('added to cart successfully');
   }
   ngOnInit(): void {
-    this.products={} as Products;
+    this.products = {} as Products;
   }
 }

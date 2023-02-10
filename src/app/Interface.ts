@@ -10,3 +10,8 @@ export interface Category {
   categoryName: string;
   categoryImage: string;
 }
+export interface Cart{
+  cartId:number,
+  userId:number,
+  productId:number
+}
