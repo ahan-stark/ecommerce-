@@ -11,14 +11,22 @@ import { ProductService } from '../services/product.service';
 })
 export class PreviewProductsComponent {
   products!: Products;
-  productId: string;
+  productId!: string;
   showAddTocart: boolean = true;
-  responseAfterPost:any
+  responseAfterPost: any;
   constructor(
     private productService: ProductService,
     private route: ActivatedRoute,
     private cartService: CartService
   ) {
+    this.products = {} as Products;
+  }
+  addToCart(productId: number) {
+    this.cartService.addTocart(1, productId).subscribe((data) => {
+      this.ngOnInit();
+    });
+  }
+  ngOnInit(): void {
     this.productId = this.route.snapshot.paramMap.get('productId') as string;
     this.productService
       .getIndividualproduct(parseInt(this.productId))
@@ -32,14 +40,5 @@ export class PreviewProductsComponent {
           this.showAddTocart = false;
         }
       });
-  }
-  addToCart(productId: number) {
-    this.cartService.addTocart(1, productId).subscribe((data)=>{
-      console.log("added successfully!");
-      
-    });
-  }
-  ngOnInit(): void {
-    this.products = {} as Products;
   }
 }
