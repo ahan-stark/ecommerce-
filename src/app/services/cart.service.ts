@@ -1,7 +1,8 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { EventEmitter, Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Cart } from '../Interface';
+import { PreviewProductsComponent } from '../preview-products/preview-products.component';
 
 @Injectable({
   providedIn: 'root',
@@ -9,7 +10,14 @@ import { Cart } from '../Interface';
 export class CartService {
   constructor(private httpclient: HttpClient) {}
   public checkIfproductsExists(userId: number, productId: number) {
-    return this.httpclient.get<Cart>('http://localhost:8080/check-cart/' + userId + '/' + productId);
+    return this.httpclient.get<Cart>(
+      'http://localhost:8080/check-cart/' + userId + '/' + productId
+    );
+  }
+  public addTocart(userId: number, productId: number) {
+    const url = `http://localhost:8080/cart/${userId}/${productId}`;
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return this.httpclient.post(url, { headers });
   }
 
   public getCartItems(): Observable<any[]> {

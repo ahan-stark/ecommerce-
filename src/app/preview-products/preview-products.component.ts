@@ -12,11 +12,12 @@ import { ProductService } from '../services/product.service';
 export class PreviewProductsComponent {
   products!: Products;
   productId: string;
-  showAddTocart:boolean=true;
+  showAddTocart: boolean = true;
+  responseAfterPost:any
   constructor(
     private productService: ProductService,
     private route: ActivatedRoute,
-    private cartService:CartService
+    private cartService: CartService
   ) {
     this.productId = this.route.snapshot.paramMap.get('productId') as string;
     this.productService
@@ -24,15 +25,19 @@ export class PreviewProductsComponent {
       .subscribe((preview: Products) => {
         this.products = preview;
       });
-      this.cartService.checkIfproductsExists(1,parseInt(this.productId)).subscribe((data)=>{
-        if(data){
-            this.showAddTocart=false;
+    this.cartService
+      .checkIfproductsExists(1, parseInt(this.productId))
+      .subscribe((data) => {
+        if (data) {
+          this.showAddTocart = false;
         }
       });
-    
   }
-  addToCart(productId: number | undefined) {
-    window.alert('added to cart successfully');
+  addToCart(productId: number) {
+    this.cartService.addTocart(1, productId).subscribe((data)=>{
+      console.log("added successfully!");
+      
+    });
   }
   ngOnInit(): void {
     this.products = {} as Products;
