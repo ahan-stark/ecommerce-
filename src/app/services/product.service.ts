@@ -12,6 +12,6 @@ export class ProductService {
     return this.http.get<Products[]>('http://localhost:8080/products/'+categoryId);
 }
 public getIndividualproduct(productId:number){
-  return this.http.get<Products[]>('http://localhost:8080/product-view/'+productId);
+  return this.http.get<Products>('http://localhost:8080/product-view/'+productId);
 }
 }

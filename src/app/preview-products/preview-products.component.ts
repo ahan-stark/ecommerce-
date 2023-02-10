@@ -9,27 +9,23 @@ import { ProductService } from '../services/product.service';
   styleUrls: ['./preview-products.component.css'],
 })
 export class PreviewProductsComponent {
-  products: Products[] = [];
+  products!: Products;
   productId: string;
   constructor(
     private productService: ProductService,
     private route: ActivatedRoute
   ) {
     this.productId = this.route.snapshot.paramMap.get('productId') as string;
-    this.productService.getIndividualproduct(parseInt(this.productId)).subscribe((products: Products[]) => {
-      this.products = products.map((products) => {
-        return {
-          productId: products.productId,
-          productName: products.productName,
-          productCategoryId: products.productCategoryId,
-          productImage: products.productImage,
-          productPrice: products.productPrice,
-        };
+    this.productService
+      .getIndividualproduct(parseInt(this.productId))
+      .subscribe((preview: Products) => {
+        this.products = preview;
       });
-    });
   }
-  addToCart(productId:number|undefined){
-      window.alert('added to cart successfully')
+  addToCart(productId: number | undefined) {
+    window.alert('added to cart successfully');
   }
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.products={} as Products;
+  }
 }
