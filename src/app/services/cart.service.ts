@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { Cart } from '../Interface';
+import { Cart, Products } from '../Interface';
 import { PreviewProductsComponent } from '../preview-products/preview-products.component';
 
 @Injectable({
@@ -18,6 +18,10 @@ export class CartService {
     const url = `http://localhost:8080/cart/${userId}/${productId}`;
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     return this.httpclient.post(url, { headers });
+  }
+
+  public removeFromCart(userId:number,productId:number){
+     return this.httpclient.delete<Products[]>(`http://localhost:8080/cart/${userId}/${productId}`);
   }
 
   public getCartItems(): Observable<any[]> {

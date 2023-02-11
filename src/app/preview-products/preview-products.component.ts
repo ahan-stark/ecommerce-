@@ -13,7 +13,6 @@ export class PreviewProductsComponent {
   products!: Products;
   productId!: string;
   showAddTocart: boolean = true;
-  responseAfterPost: any;
   constructor(
     private productService: ProductService,
     private route: ActivatedRoute,
@@ -25,6 +24,14 @@ export class PreviewProductsComponent {
     this.cartService.addTocart(1, productId).subscribe((data) => {
       this.ngOnInit();
     });
+  }
+  removeFromCart(productId:number){
+      this.cartService.removeFromCart(1,productId).subscribe((data)=>{
+        console.log("subscribed");
+        this.showAddTocart=true;
+        this.ngOnInit();
+      })
+     
   }
   ngOnInit(): void {
     this.productId = this.route.snapshot.paramMap.get('productId') as string;
