@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Products } from '../Interface';
 import { CartService } from '../services/cart.service';
+import { OrderService } from '../services/order.service';
 
 @Component({
   selector: 'app-cart',
@@ -10,7 +11,7 @@ import { CartService } from '../services/cart.service';
 export class CartComponent {
   cart: Products[] = [];
   price: number = 0;
-  constructor(private cartService: CartService) {}
+  constructor(private cartService: CartService,private orderService:OrderService) {}
   ngOnInit() {
     this.cartService.getCartItems(1).subscribe((cart: Products[]) => {
       this.price=0;
@@ -32,6 +33,9 @@ export class CartComponent {
     // });
   }
   book() {
+    this.orderService.order(1).subscribe((data)=>{
+      this.ngOnInit();
+    })
     window.alert('booked successfully');
   }
   removeFromCart(productId:number){
