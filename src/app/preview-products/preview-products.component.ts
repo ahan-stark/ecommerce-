@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, Route } from '@angular/router';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import { Products } from '../Interface';
 import { CartService } from '../services/cart.service';
 import { ProductService } from '../services/product.service';
@@ -16,7 +16,8 @@ export class PreviewProductsComponent {
   constructor(
     private productService: ProductService,
     private route: ActivatedRoute,
-    private cartService: CartService
+    private cartService: CartService,
+    private router:Router
   ) {
     this.products = {} as Products;
   }
@@ -30,7 +31,7 @@ export class PreviewProductsComponent {
         console.log("subscribed");
         this.showAddTocart=true;
         this.ngOnInit();
-      })
+      });
      
   }
   ngOnInit(): void {
@@ -47,5 +48,8 @@ export class PreviewProductsComponent {
           this.showAddTocart = false;
         }
       });
+  }
+  goToCart(){
+    this.router.navigate(['cart',1]);
   }
 }

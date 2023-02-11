@@ -10,9 +10,13 @@ import { CartService } from '../services/cart.service';
 export class CartComponent {
   cart: Products[] = [];
   price: number = 0;
-  totalPrice: number = 0;
-  constructor(private cartService: CartService) {
-    this.cartService.getCartItems().subscribe((cart: Products[]) => {
+  constructor(private cartService: CartService) {}
+  ngOnInit() {
+    this.cartService.getCartItems(1).subscribe((cart: Products[]) => {
+      this.price=0;
+      cart.forEach((item: Products) => {
+        this.price = this.price + item.productPrice;
+      });
       this.cart = cart.map((cart) => {
         return {
           productId: cart.productId,
@@ -23,12 +27,16 @@ export class CartComponent {
         };
       });
     });
-    this.cart.forEach((item: Products) => {
-      this.price += item.productPrice;
-    });
-    this.totalPrice=this.price+100;
+    // this.cart.forEach((item: Products) => {
+    //   this.price += item.productPrice;
+    // });
   }
-  book(){
+  book() {
     window.alert('booked successfully');
+  }
+  removeFromCart(productId:number){
+    this.cartService.removeFromCart(1,productId).subscribe((data)=>{
+      this.ngOnInit();
+    });
   }
 }
