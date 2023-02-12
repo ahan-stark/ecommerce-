@@ -15,3 +15,10 @@ export interface Cart{
   userId:number,
   productId:number
 }
+export interface Orders{
+  productId:number,
+  productImage:string,
+  productName:string,
+  productPrice:number,
+  orderTime:number
+}

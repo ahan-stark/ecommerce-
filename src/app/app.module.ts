@@ -13,6 +13,7 @@ import { CategoryComponent } from './category/category.component';
 import { PreviewProductsComponent } from './preview-products/preview-products.component';
 import { CartComponent } from './cart/cart.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { OrdersComponent } from './orders/orders.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     CategoryComponent,
     PreviewProductsComponent,
     CartComponent,
+    OrdersComponent,
     ],
   imports: [
     BrowserModule,
