@@ -1,0 +1,15 @@
+<h1>Super Cart</h1>
+<div>
+  <div *ngFor="let items of superCart">
+    <img src="{{ items.productImage }}" alt="network error" />
+    <h4>{{ items.productName }}</h4>
+    <h1>
+      Actual Price
+      <h3>{{ items.productPrice }}</h3>
+    </h1>
+    <h1>
+      Waiting at
+      <h3>{{ items.productBookedPrice }}</h3>
+    </h1>
+  </div>
+</div>

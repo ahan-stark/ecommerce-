@@ -22,3 +22,10 @@ export interface Orders{
   productPrice:number,
   orderTime:number
 }
+export interface SuperCart{
+  productId:number,
+  productImage:string,
+  productName:string,
+  productPrice:number,
+  productBookedPrice:number
+}

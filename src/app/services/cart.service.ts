@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Cart, Products } from '../Interface';
+import { Cart, Products, SuperCart } from '../Interface';
 
 @Injectable({
   providedIn: 'root',
@@ -29,9 +29,18 @@ export class CartService {
       `http://localhost:8080/cart/${userId}`
     );
   }
-  public addToSuperCart(userId:number,productId:number,productBookingPrice:number){
+  public addToSuperCart(
+    userId: number,
+    productId: number,
+    productBookingPrice: number
+  ) {
     const url = `http://localhost:8080/super-cart/${userId}/${productId}/${productBookingPrice}`;
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     return this.httpclient.post(url, { headers });
+  }
+  public getSuperCartItems(userId: number) {
+    return this.httpclient.get<SuperCart[]>(
+      `http://localhost:8080/super-cart/${userId}`
+    );
   }
 }

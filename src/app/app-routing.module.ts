@@ -6,6 +6,7 @@ import { CategoryComponent } from './category/category.component';
 import { OrdersComponent } from './orders/orders.component';
 import { PreviewProductsComponent } from './preview-products/preview-products.component';
 import { ProductListComponent } from './product-list/product-list.component';
+import { SuperCartComponent } from './super-cart/super-cart.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'product-preview/:productId', component: PreviewProductsComponent },
   { path: 'cart/:userId', component: CartComponent },
   { path: 'orders/:userId', component: OrdersComponent },
+  { path: 'super-cart/:userId', component: SuperCartComponent },
 ];
 
 @NgModule({

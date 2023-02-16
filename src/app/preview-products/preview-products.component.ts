@@ -59,7 +59,7 @@ export class PreviewProductsComponent {
       console.log(productId);
       console.log(this.superCartValue);
       this.cartService.addToSuperCart(1,productId,this.superCartValue).subscribe((data)=>{ 
-        alert('added to super cart');  
+        this.router.navigate(['super-cart',1]); 
       });
   }
 }
