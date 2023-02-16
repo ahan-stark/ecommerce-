@@ -3,6 +3,7 @@ import { ActivatedRoute, Route, Router } from '@angular/router';
 import { Products } from '../Interface';
 import { CartService } from '../services/cart.service';
 import { ProductService } from '../services/product.service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-preview-products',
@@ -10,6 +11,7 @@ import { ProductService } from '../services/product.service';
   styleUrls: ['./preview-products.component.css'],
 })
 export class PreviewProductsComponent {
+  superCartValue!: number;
   products!: Products;
   productId!: string;
   showAddTocart: boolean = true;
@@ -48,8 +50,16 @@ export class PreviewProductsComponent {
           this.showAddTocart = false;
         }
       });
+      this.superCartValue!;
   }
   goToCart(){
     this.router.navigate(['cart',1]);
+  }
+  addToSuperCart(productId:number){
+      console.log(productId);
+      console.log(this.superCartValue);
+      this.cartService.addToSuperCart(1,productId,this.superCartValue).subscribe((data)=>{ 
+        alert('added to super cart');  
+      });
   }
 }

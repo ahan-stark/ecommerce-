@@ -1,13 +1,18 @@
 <div class="preview-product">
-        <img src="{{ products.productImage }}" alt="network error" />
-        <h1>{{products.productName}}</h1>
-        <h3>{{ products.productPrice }}</h3>
-        <div *ngIf="showAddTocart;else removeFromcart">
-                <button (click)="addToCart(products.productId)">Add To Cart</button>    
-        </div>
-        <ng-template #removeFromcart>
-                <button (click)="removeFromCart(products.productId)">Remove From  Cart</button>
-        </ng-template>
-        <button (click)="goToCart()">Check Cart</button>
-        
+  <img src="{{ products.productImage }}" alt="network error" />
+  <h1>{{ products.productName }}</h1>
+  <h3>{{ products.productPrice }}</h3>
+  <div *ngIf="showAddTocart; else removeFromcart">
+    <button (click)="addToCart(products.productId)">Add To Cart</button>
+  </div>
+  <ng-template #removeFromcart>
+    <button (click)="removeFromCart(products.productId)">
+      Remove From Cart
+    </button>
+  </ng-template>
+  <button (click)="goToCart()">Check Cart</button>
+  <form (submit)="addToSuperCart(products.productId)">
+    <input type="number" [(ngModel)]="superCartValue" name="supercart" />
+    <button type="submit">Add To Super Cart</button>
+  </form>
 </div>

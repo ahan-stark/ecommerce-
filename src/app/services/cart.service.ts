@@ -29,4 +29,9 @@ export class CartService {
       `http://localhost:8080/cart/${userId}`
     );
   }
+  public addToSuperCart(userId:number,productId:number,productBookingPrice:number){
+    const url = `http://localhost:8080/super-cart/${userId}/${productId}/${productBookingPrice}`;
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return this.httpclient.post(url, { headers });
+  }
 }
