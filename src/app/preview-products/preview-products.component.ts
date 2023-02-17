@@ -15,11 +15,12 @@ export class PreviewProductsComponent {
   products!: Products;
   productId!: string;
   showAddTocart: boolean = true;
+  showAddToSuperCart: boolean = true;
   constructor(
     private productService: ProductService,
     private route: ActivatedRoute,
     private cartService: CartService,
-    private router:Router
+    private router: Router
   ) {
     this.products = {} as Products;
   }
@@ -28,13 +29,11 @@ export class PreviewProductsComponent {
       this.ngOnInit();
     });
   }
-  removeFromCart(productId:number){
-      this.cartService.removeFromCart(1,productId).subscribe((data)=>{
-        console.log("subscribed");
-        this.showAddTocart=true;
-        this.ngOnInit();
-      });
-     
+  removeFromCart(productId: number) {
+    this.cartService.removeFromCart(1, productId).subscribe((data) => {
+      this.showAddTocart = true;
+      this.ngOnInit();
+    });
   }
   ngOnInit(): void {
     this.productId = this.route.snapshot.paramMap.get('productId') as string;
@@ -50,16 +49,29 @@ export class PreviewProductsComponent {
           this.showAddTocart = false;
         }
       });
-      this.superCartValue!;
-  }
-  goToCart(){
-    this.router.navigate(['cart',1]);
-  }
-  addToSuperCart(productId:number){
-      console.log(productId);
-      console.log(this.superCartValue);
-      this.cartService.addToSuperCart(1,productId,this.superCartValue).subscribe((data)=>{ 
-        this.router.navigate(['super-cart',1]); 
+    this.cartService
+      .checkIfproductsExistsInSuperCart(1, parseInt(this.productId))
+      .subscribe((value) => {
+        if (value) {
+          this.showAddToSuperCart = false;
+        }
       });
+  }
+  goToCart() {
+    this.router.navigate(['cart', 1]);
+  }
+  addToSuperCart(productId: number) {
+    this.cartService
+      .addToSuperCart(1, productId, this.superCartValue)
+      .subscribe((data) => {
+        this.showAddToSuperCart=false;
+        this.ngOnInit();
+      });
+  }
+  removeSuperCart(productId: number) {
+    this.cartService.removeSuperCart(1, productId).subscribe((data) => {
+      this.showAddToSuperCart=true;
+      this.ngOnInit();
+    });
   }
 }

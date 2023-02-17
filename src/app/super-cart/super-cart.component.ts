@@ -18,7 +18,7 @@ export class SuperCartComponent {
   ngOnInit() {
     this.userId = this.route.snapshot.paramMap.get('userId') as string;
     this.cartService
-      .getSuperCartItems(1)
+      .getSuperCartItems(parseInt(this.userId))
       .subscribe((superCart: SuperCart[]) => {
         this.superCart = superCart.map((superCart) => {
           return {
@@ -30,5 +30,10 @@ export class SuperCartComponent {
           };
         });
       });
+  }
+  removeSuperCart(productId:number){
+    this.cartService.removeSuperCart(1,productId).subscribe((data)=>{
+      this.ngOnInit();
+    })
   }
 }

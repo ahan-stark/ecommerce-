@@ -43,4 +43,14 @@ export class CartService {
       `http://localhost:8080/super-cart/${userId}`
     );
   }
+  public removeSuperCart(userId: number, productId: number) {
+    return this.httpclient.delete(
+      `http://localhost:8080/super-cart/${userId}/${productId}`
+    );
+  }
+  public checkIfproductsExistsInSuperCart(userId: number, productId: number) {
+    return this.httpclient.get<SuperCart>(
+      `http://localhost:8080/check-superCart/${userId}/${productId}`
+    );
+  }
 }
