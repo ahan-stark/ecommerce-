@@ -3,22 +3,22 @@
   <h1>{{ products.productName }}</h1>
   <h3>{{ products.productPrice }}</h3>
   <div *ngIf="showAddTocart; else removeFromcart">
-    <button (click)="addToCart(products.productId)">Add To Cart</button>
+    <button class="btn btn-success" (click)="addToCart(products.productId)">Add To Cart</button>
   </div>
   <ng-template #removeFromcart>
-    <button (click)="removeFromCart(products.productId)">
+    <button class="btn btn-danger" (click)="removeFromCart(products.productId)">
       Remove From Cart
     </button>
   </ng-template>
-  <button (click)="goToCart()">Check Cart</button>
+  <button class="btn btn-info" (click)="goToCart()">Check Cart</button>
   <div *ngIf="showAddToSuperCart; else removeFromSuperCart">
     <form (submit)="addToSuperCart(products.productId)">
       <input type="number" [(ngModel)]="superCartValue" name="supercart" />
-      <button type="submit">Add To Super Cart</button>
+      <button class="btn btn-dark" type="submit">Add To Super Cart</button>
     </form>
   </div>
   <ng-template #removeFromSuperCart>
-    <button (click)="removeSuperCart(products.productId)">
+    <button class="btn btn-danger" (click)="removeSuperCart(products.productId)">
       Remove From Super Cart
     </button>
   </ng-template>
