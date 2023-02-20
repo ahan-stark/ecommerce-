@@ -1,4 +1,32 @@
-<h1>categories</h1>
+<h1>CATEGORIES</h1>
+<section class="slider">
+   <div class="card" *ngFor="let category of categories" >
+      <a (click)="goToProducts(category.categoryId)">
+        <img src="{{category.categoryImage}}" class="card-img">
+      </a>
+      <i></i>
+      <i></i>
+      <i></i>
+      <div class="card-footer">
+        <h4 class="card-title">{{category.categoryName}}</h4>
+      </div>
+     </div>
+  
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <h1>CATEGORIES</h1>
 <div>
   <div *ngFor="let category of categories">
     <div class="individual-cart-items">
@@ -8,4 +36,4 @@
         <h3>{{category.categoryName}}</h3>
     </div>
   </div>
-</div>
+</div> -->

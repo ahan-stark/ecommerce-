@@ -1,21 +1,22 @@
+
 <h1>Login</h1>
 <div class="box">
-<div class="input-form">
-  <form>
-    <div class="inputBox">
-    <input type="text" name="userName" [(ngModel)]="userName" />
-    <span>USERNAME</span>
-    <i></i>
-    </div>
-    <div class="inputBox">
-    <input type="text" name="userPassWord" [(ngModel)]="userPassWord" />
-    <span>PASSWORD</span>
-    <i></i>
-    </div>
-    <div class="inputBox">
-      <input type="submit" value="Login" (click)="onSubmit()">
-      <i></i>
-    </div>
-  </form>
-</div>
+	<div class="input-form">
+		<form>
+			<div class="inputBox">
+				<input type="text" name="userName" [(ngModel)]="userName">
+				<span>Userame</span>
+				<i></i>
+			</div>
+			<div class="inputBox">
+				<input type="password" name="userPassword" [(ngModel)]="userPassWord">
+				<span>Password</span>
+				<i></i>
+			</div>
+			<div class="inputBox">
+			<input type="submit" value="Login" (click)="onSubmit()">
+			<i></i>
+			</div>
+		</form>
+	</div>
 </div>
