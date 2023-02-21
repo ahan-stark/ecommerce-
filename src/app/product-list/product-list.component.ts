@@ -24,8 +24,6 @@ export class ProductListComponent implements OnInit {
         };
       });
     });
-    
-    
   }
   productPreview(productId:number){
     this.router.navigate(['product-preview',productId]);  

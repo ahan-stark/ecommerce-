@@ -5,8 +5,9 @@
     <img src="{{ cartItem.productImage }}" alt="network error" />
     <h4>{{ cartItem.productName }}</h4>
     <h3>{{ cartItem.productPrice }}</h3>
+    <button class="btn btn-danger" (click)="removeFromCart(cartItem.productId)">Remove</button>
   </div>
-  <button (click)="book()">Pay {{totalPrice}}</button>
+  <button class="btn btn-secondary" (click)="book()">Buy Now</button>
   <div class="price">
       <h4>price</h4>
       <h6>{{price}}</h6>
@@ -14,5 +15,7 @@
       <h6>100</h6>
       <h3>Billing Amount</h3>
       <h5>{{totalPrice}}</h5>
+    <h4>Total - price</h4>
+    <h6>{{ price }}</h6>
   </div>
 </div>

@@ -1,4 +1,5 @@
 
+
 <section class="slider">
         <div class="card">
             <div class="card-content">
@@ -24,3 +25,28 @@
         <h3>{{ products.productPrice }}</h3>
         <button (click)="addToCart(products.productId)">Buy</button>
 </div> -->
+<div class="preview-product">
+  <img src="{{ products.productImage }}" alt="network error" />
+  <h1>{{ products.productName }}</h1>
+  <h3>{{ products.productPrice }}</h3>
+  <div *ngIf="showAddTocart; else removeFromcart">
+    <button class="btn btn-success" (click)="addToCart(products.productId)">Add To Cart</button>
+  </div>
+  <ng-template #removeFromcart>
+    <button class="btn btn-danger" (click)="removeFromCart(products.productId)">
+      Remove From Cart
+    </button>
+  </ng-template>
+  <button class="btn btn-info" (click)="goToCart()">Check Cart</button>
+  <div *ngIf="showAddToSuperCart; else removeFromSuperCart">
+    <form (submit)="addToSuperCart(products.productId)">
+      <input type="number" [(ngModel)]="superCartValue" name="supercart" />
+      <button class="btn btn-dark" type="submit">Add To Super Cart</button>
+    </form>
+  </div>
+  <ng-template #removeFromSuperCart>
+    <button class="btn btn-danger" (click)="removeSuperCart(products.productId)">
+      Remove From Super Cart
+    </button>
+  </ng-template>
+</div>

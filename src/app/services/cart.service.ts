@@ -1,29 +1,56 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Cart, Products, SuperCart } from '../Interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CartService {
   constructor(private httpclient: HttpClient) {}
-  public getCartItems(): Observable<any[]> {
-    let cartitems = [
-      {
-        productId: 1,
-        productName: "Nike jordan's",
-        productCategoryId: 2,
-        productImage: 'https://www.jiomart.com/images/product/original/rvz8kawjai/dexture-air-jordan-trendy-sneakers-for-men-blue-product-images-rvz8kawjai-0-202212160809.jpg',
-        productPrice: 12500,
-      },
-      {
-        productId: 2,
-        productName: "Puma Retro Sneaker's",
-        productCategoryId: 2,
-        productImage: 'https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTvLz-cy3glDpdlB23Oy_fd6iACryUqDJwtesiY8Fg44581pYaN71YA3FGYglpmxqlnDCwaTT-9zP8DNoxI2OD4lf40ghcN1rjh2wExW_AodSrIAOh9l-od&usqp=CAE',
-        productPrice: 6500,
-      },
-    ];
-    return of(cartitems);
+  public checkIfproductsExists(userId: number, productId: number) {
+    return this.httpclient.get<Cart>(
+      'http://localhost:8080/check-cart/' + userId + '/' + productId
+    );
+  }
+  public addTocart(userId: number, productId: number) {
+    const url = `http://localhost:8080/cart/${userId}/${productId}`;
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return this.httpclient.post(url, { headers });
+  }
+
+  public removeFromCart(userId: number, productId: number) {
+    return this.httpclient.delete<Products[]>(
+      `http://localhost:8080/cart/${userId}/${productId}`
+    );
+  }
+
+  public getCartItems(userId: number) {
+    return this.httpclient.get<Products[]>(
+      `http://localhost:8080/cart/${userId}`
+    );
+  }
+  public addToSuperCart(
+    userId: number,
+    productId: number,
+    productBookingPrice: number
+  ) {
+    const url = `http://localhost:8080/super-cart/${userId}/${productId}/${productBookingPrice}`;
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return this.httpclient.post(url, { headers });
+  }
+  public getSuperCartItems(userId: number) {
+    return this.httpclient.get<SuperCart[]>(
+      `http://localhost:8080/super-cart/${userId}`
+    );
+  }
+  public removeSuperCart(userId: number, productId: number) {
+    return this.httpclient.delete(
+      `http://localhost:8080/super-cart/${userId}/${productId}`
+    );
+  }
+  public checkIfproductsExistsInSuperCart(userId: number, productId: number) {
+    return this.httpclient.get<SuperCart>(
+      `http://localhost:8080/check-superCart/${userId}/${productId}`
+    );
   }
 }
