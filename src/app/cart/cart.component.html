@@ -1,4 +1,55 @@
-<h1>cart</h1>
+<div class="wrapper">
+  <h1>cart</h1>
+  <div class="project">
+    <div class="shop">
+      <div class="box" *ngFor="let cartItem of cart">
+        <img src="{{ cartItem.productImage }}" alt="network error" />
+        <div class="content">
+          <h3>{{ cartItem.productName }}</h3>
+          <h3>{{ cartItem.productPrice }}</h3>
+          <p class="btn">
+            <button class="btn2 btn-danger" (click)="removeFromCart(cartItem.productId)">Remove</button>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="right-bar">
+    <h4 class="total">Total - price</h4>
+    <hr>
+    <h6 class="price">{{ price }}</h6>
+    <hr>
+    <div class="but">
+    <button class="btn3 btn-secondary" (click)="book()">Buy Now</button>
+  </div>
+  </div>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <h1>cart</h1>
 <div>
   <div *ngFor="let cartItem of cart">
     <img src="{{ cartItem.productImage }}" alt="network error" />
@@ -11,4 +62,4 @@
     <h4>Total - price</h4>
     <h6>{{ price }}</h6>
   </div>
-</div>
+</div> -->
