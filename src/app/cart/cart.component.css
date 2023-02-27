@@ -1,4 +1,130 @@
-.price{
-    margin-left: 72em;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.wrapper{
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.wrapper h1{
+    padding: 30px 0;
     text-align: center;
+    text-transform: uppercase;
+    color: white;
+}
+
+.project{
+    display: flex;
+}
+
+.shop{
+    flex: 75%;
+}
+
+.box{
+    display: flex;
+    width: 80%;
+    height: 220px;
+    overflow: hidden;
+    margin-left: 30px;
+    margin-bottom: 20px;
+    background: white;
+    transition: all .6s ease;
+    box-shadow: rgba(100, 100, 111, 0.2) 0 7px 29px 0;
+}
+
+.box:hover{
+    transform: scale(1.02);
+    color:blue;
+}
+
+.box img{
+    width:300px;
+    height: 200px;
+    /* object-fit: cover; */
+}
+
+.content{
+    padding: 20px;
+    position: relative;
+    width: 100%;
+}
+
+.content h3{
+    margin-bottom: 30px;
+}
+
+.content h4{
+    margin-bottom: 50px;
+}
+
+/* .btn-area{
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 25px;
+    background-color: blue;
+    color: white;
+    cursor: pointer;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+.btn-area:hover{
+    background-color: aqua;
+    color: white;
+} */
+
+
+.right-bar{
+    flex: 25%;
+    margin-left: 30px;
+    padding:20px;
+    height: auto;
+    width: 80%;
+    border-radius: 5px;
+    background: white;
+    box-shadow: rgba(100, 100, 111, 0.2) 0 7px 29px 0;
+}
+
+.right-bar hr{
+    margin-bottom: 25px;
+}
+
+.right-bar h6,h4{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 30px;
+    font-size: 20px;
+    color: red;
+}
+
+.btn, .btn2, .btn3 {
+    padding: 1rem 2rem;
+    background-color: unset;
+    border: none;
+    outline: none;
+    border-radius: 2rem;
+    color: #fff;
+    cursor: pointer;
+}
+
+.btn-secondary,.btn-danger {
+    background-color:  #00dd53;
+}
+
+.btn{
+    position: absolute;
+    right: 265px;
+}
+
+.right-bar hr{
+    margin-bottom: 25px;
+}
+.but{
+    justify-content: center;
+    margin-left: -9%;
 }
