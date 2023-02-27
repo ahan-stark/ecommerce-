@@ -80,3 +80,19 @@
     position: absolute;
     right: 265px;
 }
+img{
+    width: 25%;
+    height: 15em
+}
+h1, h3, h4{
+    text-align: center;
+}
+img{
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    cursor: pointer;
+}
+button{
+    margin-left: 48% !important;
+}

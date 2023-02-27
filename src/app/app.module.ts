@@ -16,6 +16,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { OrdersComponent } from './orders/orders.component';
 import { SuperCartComponent } from './super-cart/super-cart.component';
 import { HeaderComponent } from './header/header.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { HeaderComponent } from './header/header.component';
     OrdersComponent,
     SuperCartComponent,
     HeaderComponent,
+    HomeComponent,
     ],
   imports: [
     BrowserModule,
