@@ -10,16 +10,28 @@ import { ProductService } from '../services/product.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  products: Products[] = [];
+  smartPhone: Products[] = [];
+  trendyProducts:Products[]=[];
   ngOnInit(){
-    this.productService.getMobileToDisplayInHome().subscribe((products: Products[]) => {
-      this.products = products.map((products) => {
+    this.productService.getMobileToDisplayInHome().subscribe((smartPhone: Products[]) => {
+      this.smartPhone = smartPhone.map((smartPhone) => {
         return {
-          productId: products.productId,
-          productName: products.productName,
-          productCategoryId: products.productCategoryId,
-          productImage: products.productImage,
-          productPrice: products.productPrice,
+          productId: smartPhone.productId,
+          productName: smartPhone.productName,
+          productCategoryId: smartPhone.productCategoryId,
+          productImage: smartPhone.productImage,
+          productPrice: smartPhone.productPrice,
+        };
+      });
+    });
+    this.productService.getTrendyProducts().subscribe((trendyProducts: Products[]) => {
+      this.trendyProducts = trendyProducts.map((trendyProducts) => {
+        return {
+          productId: trendyProducts.productId,
+          productName: trendyProducts.productName,
+          productCategoryId: trendyProducts.productCategoryId,
+          productImage: trendyProducts.productImage,
+          productPrice: trendyProducts.productPrice,
         };
       });
     });

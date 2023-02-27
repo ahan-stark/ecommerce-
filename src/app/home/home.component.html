@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <ngb-carousel>
-    <ng-template ngbSlide *ngFor="let image of products">
+    <ng-template ngbSlide *ngFor="let image of smartPhone">
       <div class="wrapper" (click)="preview(image.productId)">
         <img [src]="image.productImage" alt="Random first slide">
       </div>
@@ -14,4 +14,10 @@
     <h1>
       Trending Products
     </h1>
+    <div *ngFor="let product of trendyProducts" >
+    <a (click)="preview(product.productId)">
+      <img src="{{ product.productImage }}" alt="network error" class="card-img"/>
+    </a>
+    <h4>{{ product.productName }}</h4>
+    </div>
   </div>

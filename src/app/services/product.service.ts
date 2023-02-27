@@ -20,4 +20,7 @@ export class ProductService {
   public getMobileToDisplayInHome() {
     return this.http.get<Products[]>('http://localhost:8080/get-mobiles');
   }
+  public getTrendyProducts(){
+    return this.http.get<Products[]>('http://localhost:8080/trendy-products');
+  }
 }
