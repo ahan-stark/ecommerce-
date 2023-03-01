@@ -1,63 +1,70 @@
-
-<h1>Login</h1>
-<div class="box">
-	<div class="input-form">
-		<form>
-			<div class="inputBox">
-				<input type="text" name="userName" [(ngModel)]="userName">
-				<span>Userame</span>
-				<i></i>
-			</div>
-			<div class="inputBox">
-				<input type="password" name="userPassword" [(ngModel)]="userPassWord">
-				<span>Password</span>
-				<i></i>
-			</div>
-			<div class="inputBox">
-			<input type="submit" value="Login" (click)="onSubmit()">
-			<i></i>
-			</div>
-		</form>
-	</div>
+<div *ngIf="showLogin">
+  <h1>Login</h1>
+  <div class="box">
+    <div class="input-form">
+      <form>
+        <div class="inputBox">
+          <input type="text" name="userName" [(ngModel)]="userName" />
+          <span>Userame</span>
+          <i></i>
+        </div>
+        <div class="inputBox">
+          <input
+            type="password"
+            name="userPassword"
+            [(ngModel)]="userPassWord"
+          />
+          <span>Password</span>
+          <i></i>
+        </div>
+        <div class="inputBox">
+          <input type="submit" value="Login" (click)="onSubmit()" />
+          <i></i>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="condition"  (click)="showSignUpComponent()">Dont Have an acoount?</div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <h1>Login</h1>
-<div class="box">
-<div class="input-form">
-  <form>
-    <div class="inputBox">
-    <input type="text" name="userName" [(ngModel)]="userName" />
-    <span>USERNAME</span>
-    <i></i>
+<div *ngIf="!showLogin">
+  <h1>Sign Up</h1>
+  <div class="box">
+    <div class="input-form">
+      <form>
+        <div class="inputBox">
+          <input type="text" name="newUserName" [(ngModel)]="newUserName" />
+          <span>Userame</span>
+          <i></i>
+        </div>
+        <div class="inputBox">
+          <input
+            type="password"
+            name="newUserPassWord"
+            [(ngModel)]="newUserPassWord"
+          />
+          <span>Password</span>
+          <i></i>
+        </div>
+        <div class="inputBox">
+          <input type="text" name="newUserMail" [(ngModel)]="newUserMail" />
+          <span>Mail</span>
+          <i></i>
+        </div>
+        <div class="inputBox">
+          <input
+            type="number"
+            name="newUserPhoneNumber"
+            [(ngModel)]="newUserPhoneNumber"
+          />
+          <span>Number</span>
+          <i></i>
+        </div>
+        <div class="inputBox">
+          <input type="submit" value="Login" (click)="signUp()" />
+          <i></i>
+        </div>
+      </form>
     </div>
-    <div class="inputBox">
-    <input type="text" name="userPassWord" [(ngModel)]="userPassWord" />
-    <span>PASSWORD</span>
-    <i></i>
-    </div>
-    <div class="inputBox">
-      <input type="submit" value="Login" (click)="onSubmit()">
-      <i></i>
-    </div>
-  </form>
+  </div>
+  <div class="condition" (click)="showLoginComponent()">Have an acoount?</div>
 </div>
-</div> -->

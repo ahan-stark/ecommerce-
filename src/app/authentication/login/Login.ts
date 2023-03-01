@@ -1,4 +1,4 @@
-export class Login{
-    userName!:string;
-    userPassWord!:string;
+export interface Login{
+    userName:string;
+    userPassWord:string;
 }
