@@ -18,7 +18,7 @@
 .card{
     position: relative;
     width: 320px;
-    height: 380px;
+    height: 320px;
     background: #122936;
     border-radius: 20px;
     overflow: hidden;
@@ -60,7 +60,7 @@
 }
 
 .card .imgbox img{
-   width: 80%;
+   width: 90%;
     transition: 0.5s;
 }
 
@@ -121,8 +121,8 @@ h1{
     letter-spacing: 0.1em;
 }
 img{
-    width: 25%;
-    height: 15em
+    width: 50%;
+    height: 15em;
 }
 h1, h3, h4{
     text-align: center;

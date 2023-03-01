@@ -145,7 +145,7 @@ h3{
     color:#00dd53;
 }
 
-.btn {
+.btn{
     padding: 1rem 2rem;
     background-color: unset;
     border: none;
@@ -153,6 +153,8 @@ h3{
     border-radius: 2rem;
     color: #fff;
     cursor: pointer;
+    font-size: 13px;
+    margin-left: -01%;
 }
 
 .btn-success  {
@@ -232,4 +234,28 @@ img{
 }
 button{
     margin-left: 48%;
+}
+
+.btn2{
+    padding: 1rem 2rem;
+    background-color: blue;
+    border: none;
+    outline: none;
+    border-radius: 2rem;
+    color: #fff;
+    cursor: pointer;
+    font-size: 13px;
+    margin-left: 40%;
+}
+
+.btn3{
+    padding: 1rem 2rem;
+    background-color: red;
+    border: none;
+    outline: none;
+    border-radius: 2rem;
+    color: #fff;
+    cursor: pointer;
+    font-size: 13px;
+    margin-left: 35%;
 }

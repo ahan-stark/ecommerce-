@@ -20,7 +20,7 @@
      </div>
   </div>
   <div class="right-bar">
-    <button class="btn btn-info" (click)="goToCart()">Check Cart</button>
+    <button class="btn2 btn-info" (click)="goToCart()">Check Cart</button>
     <hr>
     <div class="inp" *ngIf="showAddToSuperCart; else removeFromSuperCart">
       <form (submit)="addToSuperCart(products.productId)">
@@ -31,7 +31,7 @@
       </form>
     </div>
     <ng-template #removeFromSuperCart>
-      <button class="btn btn-danger" (click)="removeSuperCart(products.productId)">
+      <button class="btn3 btn-danger" (click)="removeSuperCart(products.productId)">
         Remove From Super Cart
       </button>
     </ng-template>

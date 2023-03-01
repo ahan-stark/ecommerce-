@@ -1,22 +1,24 @@
 <div class="wrapper">
-  <h1>Super Cart</h1>
+  <h2>Super Cart</h2>
   <div class="project">
     <div class="shop">
       <div class="box" *ngFor="let items of superCart">
         <img src="{{ items.productImage }}" alt="network error" />
         <div class="content">
           <h4>{{ items.productName }}</h4>
+          <hr>
           <h1>
             Actual Price
             <h3>{{ items.productPrice }}</h3>
           </h1>
+          <hr>
           <h1>
             Waiting at
             <h3>{{ items.productBookedPrice }}</h3>
           </h1>
-          <p class="btn">
-            <button class="btn btn-danger" (click)="removeSuperCart(items.productId)">cancel</button>
-          </p>
+          
+            <button class="btn btn-danger" (click)="removeSuperCart(items.productId)">Cancel</button>
+          
         </div>
       </div>
     </div>
