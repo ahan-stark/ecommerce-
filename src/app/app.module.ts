@@ -6,7 +6,11 @@ import { AppComponent } from './app.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { AuthenticationComponent } from './authentication/authentication.component';
 import { LoginComponent } from './authentication/login/login.component';
-import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpClientModule,
+  HTTP_INTERCEPTORS,
+} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AuthInterceptor } from './authentication/interceptors/auth-interceptor';
 import { CategoryComponent } from './category/category.component';
@@ -17,6 +21,8 @@ import { OrdersComponent } from './orders/orders.component';
 import { SuperCartComponent } from './super-cart/super-cart.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
+import { ConfirmLogoutComponent } from './header/confirm-logout/confirm-logout.component';
+import { MatDialogModule, MatDialogRef, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -31,19 +37,24 @@ import { HomeComponent } from './home/home.component';
     SuperCartComponent,
     HeaderComponent,
     HomeComponent,
-    ],
+    ConfirmLogoutComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    MatDialogModule
   ],
-  providers: [{
-    provide : HTTP_INTERCEPTORS,
-    useClass: AuthInterceptor,
-    multi   : true,
-  }],
-  bootstrap: [AppComponent]
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },
+    { provide: MatDialogRef, useValue: {} }
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
