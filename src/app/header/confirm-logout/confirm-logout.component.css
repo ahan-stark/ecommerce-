@@ -1,0 +1,21 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    place-items: center;
+}
+
+.log{
+    background: black;
+}
+h3{
+    color: aliceblue;
+}
+
+button{
+    margin-left: 48%;
+    font-size: 12px;
+    width: 125px;
+    background: black;
+    color: aliceblue;
+}
