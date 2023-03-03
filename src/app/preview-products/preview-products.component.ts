@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./preview-products.component.css'],
 })
 export class PreviewProductsComponent {
+  userId!:string;
   superCartValue!: number;
   products!: Products;
   productId!: string;
@@ -25,32 +26,33 @@ export class PreviewProductsComponent {
     this.products = {} as Products;
   }
   addToCart(productId: number) {
-    this.cartService.addTocart(1, productId).subscribe((data) => {
+    this.cartService.addTocart(parseInt(this.userId), productId).subscribe((data) => {
       this.ngOnInit();
     });
   }
   removeFromCart(productId: number) {
-    this.cartService.removeFromCart(1, productId).subscribe((data) => {
+    this.cartService.removeFromCart(parseInt(this.userId), productId).subscribe((data) => {
       this.showAddTocart = true;
       this.ngOnInit();
     });
   }
   ngOnInit(): void {
     this.productId = this.route.snapshot.paramMap.get('productId') as string;
+     this.userId = localStorage.getItem('userId') as string;
     this.productService
       .getIndividualproduct(parseInt(this.productId))
       .subscribe((preview: Products) => {
         this.products = preview;
       });
     this.cartService
-      .checkIfproductsExists(1, parseInt(this.productId))
+      .checkIfproductsExists(parseInt(this.userId), parseInt(this.productId))
       .subscribe((data) => {
         if (data) {
           this.showAddTocart = false;
         }
       });
     this.cartService
-      .checkIfproductsExistsInSuperCart(1, parseInt(this.productId))
+      .checkIfproductsExistsInSuperCart(parseInt(this.userId), parseInt(this.productId))
       .subscribe((value) => {
         if (value) {
           this.showAddToSuperCart = false;
@@ -58,18 +60,18 @@ export class PreviewProductsComponent {
       });
   }
   goToCart() {
-    this.router.navigate(['cart', 1]);
+    this.router.navigate(['cart']);
   }
   addToSuperCart(productId: number) {
     this.cartService
-      .addToSuperCart(1, productId, this.superCartValue)
+      .addToSuperCart(parseInt(this.userId), productId, this.superCartValue)
       .subscribe((data) => {
         this.showAddToSuperCart=false;
         this.ngOnInit();
       });
   }
   removeSuperCart(productId: number) {
-    this.cartService.removeSuperCart(1, productId).subscribe((data) => {
+    this.cartService.removeSuperCart(parseInt(this.userId), productId).subscribe((data) => {
       this.showAddToSuperCart=true;
       this.ngOnInit();
     });

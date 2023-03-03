@@ -15,9 +15,9 @@ const routes: Routes = [
   { path: 'products/:categoryId', component: ProductListComponent },
   { path: 'category', component: CategoryComponent },
   { path: 'product-preview/:productId', component: PreviewProductsComponent },
-  { path: 'cart/:userId', component: CartComponent },
-  { path: 'orders/:userId', component: OrdersComponent },
-  { path: 'super-cart/:userId', component: SuperCartComponent },
+  { path: 'cart', component: CartComponent },
+  { path: 'orders', component: OrdersComponent },
+  { path: 'super-cart', component: SuperCartComponent },
   {path:'home',component:HomeComponent}
 ];
 

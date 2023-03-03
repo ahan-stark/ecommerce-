@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmLogoutComponent } from './confirm-logout/confirm-logout.component';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-header',
@@ -9,8 +10,7 @@ import { ConfirmLogoutComponent } from './confirm-logout/confirm-logout.componen
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent {
-  userId: number = 1;
-  constructor(private router: Router, private dialog: MatDialog) {}
+  constructor(private router: Router, private dialog: MatDialog,private cookieService:CookieService) {}
   goToHome() {
     this.router.navigate(['/home']);
   }
@@ -18,13 +18,13 @@ export class HeaderComponent {
     this.router.navigate(['category']);
   }
   goToCart() {
-    this.router.navigate(['cart', this.userId]);
+    this.router.navigate(['cart']);
   }
   goToSuperCart() {
-    this.router.navigate(['super-cart', this.userId]);
+    this.router.navigate(['super-cart']);
   }
   goToOrders() {
-    this.router.navigate(['orders', this.userId]);
+    this.router.navigate(['orders']);
   }
   confirmLogout() {
     const openDialog = this.dialog.open(ConfirmLogoutComponent, {
@@ -33,7 +33,8 @@ export class HeaderComponent {
     });
     openDialog.afterClosed().subscribe((result) => {
       if (result === 'confirm') {
-        //delete the userinfor from cache
+        localStorage.removeItem('userId');
+        this.cookieService.deleteAll();
         this.router.navigate(['login']);
       } else if (result === 'cancel') {
       }

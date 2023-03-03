@@ -9,14 +9,14 @@ import { OrderService } from '../services/order.service';
   styleUrls: ['./orders.component.css'],
 })
 export class OrdersComponent {
+  userId!:string;
   orders: Orders[] = [];
-  userId: string | undefined;
   constructor(
     private route: ActivatedRoute,
     private ordersService: OrderService
   ) {}
   ngOnInit() {
-    this.userId = this.route.snapshot.paramMap.get('userId') as string;
+    this.userId = localStorage.getItem('userId') as string;
     this.ordersService
       .getOrders(parseInt(this.userId))
       .subscribe((orders: Orders[]) => {
@@ -32,7 +32,7 @@ export class OrdersComponent {
       });
   }
   cancelOrder(productId: number) {
-    this.ordersService.cancelOrder(1, productId).subscribe((data) => {
+    this.ordersService.cancelOrder(parseInt(this.userId), productId).subscribe((data) => {
       console.log("done");
       this.ngOnInit();
     });

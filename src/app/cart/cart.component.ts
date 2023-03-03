@@ -9,11 +9,13 @@ import { OrderService } from '../services/order.service';
   styleUrls: ['./cart.component.css'],
 })
 export class CartComponent {
+  userId!:string;
   cart: Products[] = [];
   price: number = 0;
   constructor(private cartService: CartService,private orderService:OrderService) {}
   ngOnInit() {
-    this.cartService.getCartItems(1).subscribe((cart: Products[]) => {
+    this.userId = localStorage.getItem('userId') as string;
+    this.cartService.getCartItems(parseInt(this.userId)).subscribe((cart: Products[]) => {
       this.price=0;
       cart.forEach((item: Products) => {
         this.price = this.price + item.productPrice;
@@ -33,13 +35,13 @@ export class CartComponent {
     // });
   }
   book() {
-    this.orderService.order(1).subscribe((data)=>{
+    this.orderService.order(parseInt(this.userId)).subscribe((data)=>{
       this.ngOnInit();
     })
     window.alert('booked successfully');
   }
   removeFromCart(productId:number){
-    this.cartService.removeFromCart(1,productId).subscribe((data)=>{
+    this.cartService.removeFromCart(parseInt(this.userId),productId).subscribe((data)=>{
       this.ngOnInit();
     });
   }
