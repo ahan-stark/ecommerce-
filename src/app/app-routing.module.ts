@@ -10,6 +10,7 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { SuperCartComponent } from './super-cart/super-cart.component';
 
 const routes: Routes = [
+  {path:'',redirectTo:'/login', pathMatch: 'full'},
   { path: 'login', component: LoginComponent },
   { path: 'products/:categoryId', component: ProductListComponent },
   { path: 'category', component: CategoryComponent },

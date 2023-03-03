@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavigationStart, Router } from '@angular/router';
+import { NavigationEnd, NavigationStart, Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -11,8 +11,8 @@ export class AppComponent {
   showHead: boolean = false;
   constructor(private router: Router) {
     router.events.forEach((event) => {
-      if (event instanceof NavigationStart) {
-        if (event['url'] == '/login') {
+      if (event instanceof NavigationEnd) {
+        if (['/login','/'].includes(event['url'])) {
           this.showHead = false;
         } else {
           this.showHead = true;

@@ -14,17 +14,17 @@ export class AuthInterceptor implements HttpInterceptor {
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    // if (!req.url.includes('login') || !req.url.includes('register')) {
-    //   if(!req.url.includes('products')){
-    //     req = req.clone({
-    //         setHeaders: {
-    //           'Content-Type' : 'application/json; charset=utf-8',
-    //           'Accept'       : 'application/json',
-    //           'Authorization': `Bearer ${getCookie()}`,
-    //         },
-    //       });
-    // }
-
+    if (req.url.includes('login') || req.url.includes('signup'))
+      return next.handle(req);
+    const test = getCookie();
+    req = req.clone({
+      setHeaders: {
+        'Content-Type': 'application/json; charset=utf-8',
+        Accept: 'application/json',
+        Authorization: `Bearer ${getCookie()}`,
+      },
+    });
     return next.handle(req);
+
   }
 }

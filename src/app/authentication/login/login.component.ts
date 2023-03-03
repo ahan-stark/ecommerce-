@@ -31,7 +31,7 @@ export class LoginComponent {
     this.loginService.login(loginDetails).subscribe((loginResponse) => {
       console.log(loginResponse);
       setCookie('token', loginResponse.authenticationToken);
-      // this.router.navigate(['products']);
+      this.router.navigate(['home']);
       // this.loginService.getProducts().subscribe(res => {
       //   console.log(res);
 
@@ -43,5 +43,14 @@ export class LoginComponent {
     console.log(this.newUserPassWord);
     console.log(this.newUserMail);
     console.log(this.newUserPhoneNumber);
+    this.loginService.signup({
+      newUserName:this.newUserName,
+      newUserPassword:this.newUserPassWord,
+      newUserMail: this.newUserMail,
+      newUserPhoneNumber: this.newUserPhoneNumber
+    }).subscribe(_ => {
+      console.log('signup done');
+      
+    });
   }
 }
