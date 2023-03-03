@@ -31,11 +31,9 @@ export class LoginComponent {
     this.loginService.login(loginDetails).subscribe((loginResponse) => {
       console.log(loginResponse);
       setCookie('token', loginResponse.authenticationToken);
+      localStorage.setItem('userId',loginResponse.userId);
+      console.log(loginResponse.userId);
       this.router.navigate(['home']);
-      // this.loginService.getProducts().subscribe(res => {
-      //   console.log(res);
-
-      // })
     });
   }
   signUp() {
