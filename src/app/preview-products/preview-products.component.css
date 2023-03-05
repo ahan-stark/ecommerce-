@@ -192,7 +192,7 @@ h4{
 }
 
 .btn-dark{
-    width:80%;
+    width:60%;
 }
 
 .right-bar{
@@ -245,7 +245,7 @@ button{
     color: #fff;
     cursor: pointer;
     font-size: 13px;
-    margin-left: 40%;
+    margin-left: 45%;
 }
 
 .btn3{
@@ -258,4 +258,25 @@ button{
     cursor: pointer;
     font-size: 13px;
     margin-left: 35%;
+}
+
+.frm{
+    display: block;
+    justify-content: center;
+    padding: 10px 30px;
+}
+
+.btn-dark{
+    margin-left: 40%;
+    
+}
+.enter{
+    justify-content: center;
+    margin-left: 50%;
+    margin-bottom: 2%;
+}
+
+.enter input:valid ~ i,
+.enter input:focus ~ i {
+  height: 44px;
 }

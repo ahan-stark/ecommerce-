@@ -1,16 +1,78 @@
+<div class="mmm">
+<div class="slide-container swiper">
+  <div class="slide-content">
+      <div class="card-wrapper swiper-wrapper">
+          <div class="card swiper-slide">
+            <ngb-carousel>
+              <ng-template ngbSlide *ngFor="let image of smartPhone">
+              <div class="image-content">
+                  <span class="overlay"></span>
+                    <div class="card-image" (click)="preview(image.productId)">
+                      <img [src]="image.productImage" alt="Random first slide" class="card-img">
+                    </div> 
+                </div>
+                <div class="card-content">
+                  <h3>{{ image.productName }}</h3>
+                </div>
+              </ng-template>
+            </ngb-carousel>  
+          </div>
+      </div>
+  </div>
+  <div class="swiper-button-next swiper-navBtn"></div>
+  <div class="swiper-button-prev swiper-navBtn"></div>
+ <div class="swiper-pagination"></div>
+</div>
+
+</div>
+<div class="txt">
+  <h1>
+    Trending Products
+  </h1>
+</div>
 <div class="container-fluid">
+
+    <div class="cardcont" *ngFor="let product of trendyProducts" >
+      <a  (click)="preview(product.productId)">
+        <img src="{{ product.productImage }}" alt="network error" class="card-imgs"/>
+      </a>
+      <h4>{{ product.productName }}</h4>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="container-fluid">
   <ngb-carousel>
     <ng-template ngbSlide *ngFor="let image of smartPhone">
       <div class="wrapper" (click)="preview(image.productId)">
         <img [src]="image.productImage" alt="Random first slide">
-      </div>
-      <!-- <div class="carousel-caption">
+      </div> 
+      <div class="carousel-caption">
         <h3>{{ image.productName }}</h3>
-      </div> -->
-    </ng-template>
-  </ngb-carousel>
+      </div>
+     </ng-template>
+  </ngb-carousel> -->
 
-  <div>
+  <!-- <div>
     <h1>
       Trending Products
     </h1>
@@ -20,4 +82,4 @@
     </a>
     <h4>{{ product.productName }}</h4>
     </div>
-  </div>
+  </div> -->

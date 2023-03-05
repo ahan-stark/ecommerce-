@@ -46,3 +46,6 @@ preview(productId:number){
   this.router.navigate(['product-preview',productId]);
 }
 }
+
+
+

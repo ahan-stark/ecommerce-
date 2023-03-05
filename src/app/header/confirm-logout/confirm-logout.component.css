@@ -6,16 +6,32 @@
 }
 
 .log{
-    background: black;
+    background: rgb(221, 2, 2);
 }
 h3{
     color: aliceblue;
 }
-
-button{
-    margin-left: 48%;
+.btn{
+    display: block;
+    justify-content: center;
+    padding: 10px 30px;
+    /* margin-left: 48%;
     font-size: 12px;
     width: 125px;
     background: black;
+    color: aliceblue; */
+}
+button{
+    font-size: 12px;
+    width: 125px;
+    background: rgb(221, 2, 2);
     color: aliceblue;
+}
+
+.btn1{
+    margin-left:-5%;
+}
+
+.btn2{
+    margin-left: 5%;
 }
