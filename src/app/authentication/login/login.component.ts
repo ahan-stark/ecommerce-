@@ -47,36 +47,49 @@ export class LoginComponent {
         this.showLoginErorr = true;
         setTimeout(() => {
           this.showLoginErorr = false;
-        }, 5000);
+        }, 3000);
       }
     });
   }
   signUp() {
-    this.loginService
-      .checkIfUserExists({
-        newUserName: this.newUserName,
-        newUserPassword: this.newUserPassWord,
-        newUserMail: this.newUserMail,
-        newUserPhoneNumber: this.newUserPhoneNumber,
-      })
-      .subscribe((val: any) => {
-        console.log(val.userRegistercheck);
-        this.userExists = val.userRegistercheck;
-        if (this.userExists == 'success') {
-          this.showLoginErorrMessage = 'User already registered';
-          this.showLoginErorr = true;
-          setTimeout(() => {
-            this.showLoginErorr = false;
-          }, 5000);
-        } else if (this.userExists == 'failed') {
-          this.loginService.signup({
-            newUserName: this.newUserName,
-            newUserPassword: this.newUserPassWord,
-            newUserMail: this.newUserMail,
-            newUserPhoneNumber: this.newUserPhoneNumber,
-          });
-          alert('user registered');
-        }
-      });
+    if (
+      this.newUserName != null &&
+      this.newUserPassWord != null &&
+      this.newUserMail != null &&
+      this.newUserPhoneNumber != null
+    ) {
+      this.loginService
+        .checkIfUserExists({
+          newUserName: this.newUserName,
+          newUserPassword: this.newUserPassWord,
+          newUserMail: this.newUserMail,
+          newUserPhoneNumber: this.newUserPhoneNumber,
+        })
+        .subscribe((val: any) => {
+          console.log(val.userRegistercheck);
+          this.userExists = val.userRegistercheck;
+          if (this.userExists == 'success') {
+            this.showLoginErorrMessage = 'User already registered';
+            this.showLoginErorr = true;
+            setTimeout(() => {
+              this.showLoginErorr = false;
+            }, 3000);
+          } else if (this.userExists == 'failed') {
+            this.loginService.signup({
+              newUserName: this.newUserName,
+              newUserPassword: this.newUserPassWord,
+              newUserMail: this.newUserMail,
+              newUserPhoneNumber: this.newUserPhoneNumber,
+            });
+            alert('user registered');
+          }
+        });
+    } else {
+      this.showLoginErorrMessage = 'provide all details';
+        this.showLoginErorr = true;
+        setTimeout(() => {
+          this.showLoginErorr = false;
+        }, 3000);
+    }
   }
 }
