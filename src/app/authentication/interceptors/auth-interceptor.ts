@@ -14,7 +14,7 @@ export class AuthInterceptor implements HttpInterceptor {
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    if (req.url.includes('login') || req.url.includes('signup'))
+    if (req.url.includes('login') || req.url.includes('signup') || req.url.includes('checkSignUpUser'))
       return next.handle(req);
     const test = getCookie();
     req = req.clone({

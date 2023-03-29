@@ -15,11 +15,19 @@ export class LoginService {
   }
 
   signup(signupBody: any) {
-    return this.http.post<any>('http://localhost:8080/api/auth/signup', {
+    this.http.post<any>('http://localhost:8080/api/auth/signup', {
       username: signupBody.newUserName,
       password: signupBody.newUserPassword,
       email: signupBody.newUserMail,
       phoneNum: signupBody.newUserPhoneNumber
     });
+  }
+  checkIfUserExists(signupBody:any){
+    return this.http.post<any>('http://localhost:8080/api/auth/checkSignUpUser',{
+      username: signupBody.newUserName,
+      password: signupBody.newUserPassword,
+      email: signupBody.newUserMail,
+      phoneNum: signupBody.newUserPhoneNumber
+    },);
   }
 }

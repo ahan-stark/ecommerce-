@@ -21,6 +21,9 @@
           <input type="submit" value="Login" (click)="onSubmit()" />
           <i></i>
         </div>
+        <div *ngIf="showLoginErorr">
+          <h1 class="errorMesage">{{showLoginErorrMessage}}</h1>
+        </div>
       </form>
     </div>
   </div>
@@ -62,6 +65,9 @@
         <div class="inputBox">
           <input type="submit" value="Login" (click)="signUp()" />
           <i></i>
+        </div>
+        <div *ngIf="showLoginErorr">
+          <h1 class="errorMesage">{{showLoginErorrMessage}}</h1>
         </div>
       </form>
     </div>

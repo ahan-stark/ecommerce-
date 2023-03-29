@@ -16,6 +16,9 @@ export class LoginComponent {
   newUserName!: string;
   newUserPhoneNumber!: number;
   showLogin: boolean = true;
+  userExists: string | undefined;
+  showLoginErorr: boolean = false;
+  showLoginErorrMessage: string = '';
   constructor(private loginService: LoginService, private router: Router) {}
   showSignUpComponent() {
     this.showLogin = false;
@@ -29,26 +32,51 @@ export class LoginComponent {
       userPassWord: this.userPassWord,
     };
     this.loginService.login(loginDetails).subscribe((loginResponse) => {
-      console.log(loginResponse);
-      setCookie('token', loginResponse.authenticationToken);
-      localStorage.setItem('userId',loginResponse.userId);
-      console.log(loginResponse.userId);
-      this.router.navigate(['home']);
+      if (
+        loginResponse.username != 'failed user name' &&
+        loginResponse.authenticationToken != '"failed user details' &&
+        loginResponse.userId != null
+      ) {
+        console.log(loginResponse);
+        setCookie('token', loginResponse.authenticationToken);
+        localStorage.setItem('userId', loginResponse.userId);
+        console.log(loginResponse.userId);
+        this.router.navigate(['home']);
+      } else {
+        this.showLoginErorrMessage = 'Invalid Username or Password';
+        this.showLoginErorr = true;
+        setTimeout(() => {
+          this.showLoginErorr = false;
+        }, 5000);
+      }
     });
   }
   signUp() {
-    console.log(this.newUserName);
-    console.log(this.newUserPassWord);
-    console.log(this.newUserMail);
-    console.log(this.newUserPhoneNumber);
-    this.loginService.signup({
-      newUserName:this.newUserName,
-      newUserPassword:this.newUserPassWord,
-      newUserMail: this.newUserMail,
-      newUserPhoneNumber: this.newUserPhoneNumber
-    }).subscribe(_ => {
-      console.log('signup done');
-      
-    });
+    this.loginService
+      .checkIfUserExists({
+        newUserName: this.newUserName,
+        newUserPassword: this.newUserPassWord,
+        newUserMail: this.newUserMail,
+        newUserPhoneNumber: this.newUserPhoneNumber,
+      })
+      .subscribe((val: any) => {
+        console.log(val.userRegistercheck);
+        this.userExists = val.userRegistercheck;
+        if (this.userExists == 'success') {
+          this.showLoginErorrMessage = 'User already registered';
+          this.showLoginErorr = true;
+          setTimeout(() => {
+            this.showLoginErorr = false;
+          }, 5000);
+        } else if (this.userExists == 'failed') {
+          this.loginService.signup({
+            newUserName: this.newUserName,
+            newUserPassword: this.newUserPassWord,
+            newUserMail: this.newUserMail,
+            newUserPhoneNumber: this.newUserPhoneNumber,
+          });
+          alert('user registered');
+        }
+      });
   }
 }
