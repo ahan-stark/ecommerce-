@@ -1,32 +1,40 @@
 <div class="wrapper">
   <h2>Super Cart</h2>
-  <div class="project">
-    <div class="shop">
-      <div class="box" *ngFor="let items of superCart">
-        <img src="{{ items.productImage }}" alt="network error" />
-        <div class="content">
-          <h4>{{ items.productName }}</h4>
-          <hr />
-          <h1>
-            Actual Price
-            <h3>{{ items.productPrice }}</h3>
-          </h1>
-          <hr />
-          <h1>
-            Waiting at
-            <h3>{{ items.productBookedPrice }}</h3>
-          </h1>
-          <button class="btn btn-warning"
-            (click)="orderFromSupercart(items.productId)"
-          >
-            Buy Now
-          </button>
-          <button
-            class="btn btn-danger"
-            (click)="removeSuperCart(items.productId)"
-          >
-            Cancel
-          </button>
+  <div *ngIf="superCartMessageShow">
+    <div class="error-message-place">
+      <p class="error-message">Super Cart Empty</p>
+    </div>
+  </div>
+  <div *ngIf="!superCartMessageShow">
+    <div class="project">
+      <div class="shop">
+        <div class="box" *ngFor="let items of superCart">
+          <img src="{{ items.productImage }}" alt="network error" />
+          <div class="content">
+            <h4>{{ items.productName }}</h4>
+            <hr />
+            <h1>
+              Actual Price
+              <h3>{{ items.productPrice }}</h3>
+            </h1>
+            <hr />
+            <h1>
+              Waiting at
+              <h3>{{ items.productBookedPrice }}</h3>
+            </h1>
+            <button
+              class="btn btn-warning"
+              (click)="orderFromSupercart(items.productId)"
+            >
+              Buy Now
+            </button>
+            <button
+              class="btn btn-danger"
+              (click)="removeSuperCart(items.productId)"
+            >
+              Cancel
+            </button>
+          </div>
         </div>
       </div>
     </div>
