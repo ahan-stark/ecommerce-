@@ -36,4 +36,11 @@ export class SuperCartComponent {
       this.ngOnInit();
     })
   }
+  orderFromSupercart(productId:number){
+    this.cartService.orderFromSupercart(parseInt(this.userId),productId).subscribe((data)=>{
+      alert('booked successfully')
+      this.ngOnInit();
+    });
+    
+  }
 }

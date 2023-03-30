@@ -6,38 +6,32 @@
         <img src="{{ items.productImage }}" alt="network error" />
         <div class="content">
           <h4>{{ items.productName }}</h4>
-          <hr>
+          <hr />
           <h1>
             Actual Price
             <h3>{{ items.productPrice }}</h3>
           </h1>
-          <hr>
+          <hr />
           <h1>
             Waiting at
             <h3>{{ items.productBookedPrice }}</h3>
           </h1>
-          
-            <button class="btn btn-danger" (click)="removeSuperCart(items.productId)">Cancel</button>
-          
+          <button class="btn btn-warning"
+            (click)="orderFromSupercart(items.productId)"
+          >
+            Buy Now
+          </button>
+          <button
+            class="btn btn-danger"
+            (click)="removeSuperCart(items.productId)"
+          >
+            Cancel
+          </button>
         </div>
       </div>
     </div>
-    </div>
-    </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  </div>
+</div>
 
 <!-- <h1>Super Cart</h1>
 <div>

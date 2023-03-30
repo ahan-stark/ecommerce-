@@ -53,4 +53,11 @@ export class CartService {
       `http://localhost:8080/check-superCart/${userId}/${productId}`
     );
   }
+  public orderFromSupercart(userId: number, productId: number) {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return this.httpclient.post(
+      `http://localhost:8080/super-cart/book/${userId}/${productId}`,
+      { headers }
+    );
+  }
 }

@@ -69,7 +69,6 @@ hr{
 
 .btn {
     padding: 1rem 2rem;
-    background-color: blue;
     border: none;
     outline: none;
     border-radius: 2rem;
@@ -82,8 +81,8 @@ hr{
 } */
 
 .btn{
-    position: absolute;
-    right: 265px;
+    margin-right: 1em;
+    margin-left: 4.5em;
 }
 img{
     width: 25%;
