@@ -24,7 +24,7 @@
     <hr>
     <div class="inp" *ngIf="showAddToSuperCart; else removeFromSuperCart">
       <form (submit)="addToSuperCart(products.productId)">
-        <h4>At what price you wish to buy this item?</h4>
+        <p class="price-ask">At what price you wish to buy this item?</p>
      
         <input type="number" [(ngModel)]="superCartValue" name="supercart" class="enter"/>
         <button class="btn btn-dark" type="submit">Add To Super Cart</button>

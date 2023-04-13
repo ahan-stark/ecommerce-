@@ -191,10 +191,6 @@ h4{
     align-items: center;
 }
 
-.btn-dark{
-    width:60%;
-}
-
 .right-bar{
     flex: 25%;
     margin-left: 30px;
@@ -257,7 +253,7 @@ button{
     color: #fff;
     cursor: pointer;
     font-size: 13px;
-    margin-left: 35%;
+    margin-left: 39%;
 }
 
 .frm{
@@ -267,7 +263,8 @@ button{
 }
 
 .btn-dark{
-    margin-left: 40%;
+    width: 30%;
+    margin-left: 52%;
     
 }
 .enter{
@@ -279,4 +276,9 @@ button{
 .enter input:valid ~ i,
 .enter input:focus ~ i {
   height: 44px;
+}
+.price-ask{
+    color: lightgreen;
+    font-weight: 600;
+    margin-left: 38%;
 }
