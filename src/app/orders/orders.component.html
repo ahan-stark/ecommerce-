@@ -10,6 +10,11 @@
         <button class="btn btn-danger " (click)="cancelOrder(order.productId)">Cancel order</button>
     </div>
 </div>
+<div *ngIf="orderMessageShow">
+    <div class="error-message-place">
+      <p class="error-message">No Orders</p>
+    </div>
+  </div>
 </section>
 
 
