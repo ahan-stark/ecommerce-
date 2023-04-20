@@ -13,9 +13,8 @@ export class LoginService {
       password: loginDetails.userPassWord,
     });
   }
-
   signup(signupBody: any) {
-    this.http.post<any>('http://localhost:8080/api/auth/signup', {
+   return this.http.post<any>('http://localhost:8080/api/auth/signup', {
       username: signupBody.newUserName,
       password: signupBody.newUserPassword,
       email: signupBody.newUserMail,

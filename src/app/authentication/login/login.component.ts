@@ -75,21 +75,25 @@ export class LoginComponent {
               this.showLoginErorr = false;
             }, 3000);
           } else if (this.userExists == 'failed') {
-            this.loginService.signup({
-              newUserName: this.newUserName,
-              newUserPassword: this.newUserPassWord,
-              newUserMail: this.newUserMail,
-              newUserPhoneNumber: this.newUserPhoneNumber,
-            });
-            alert('user registered');
+            this.loginService
+              .signup({
+                newUserName: this.newUserName,
+                newUserPassword: this.newUserPassWord,
+                newUserMail: this.newUserMail,
+                newUserPhoneNumber: this.newUserPhoneNumber,
+              })
+              .subscribe(() => {
+                console.log('registered');
+              });
+              alert('registered successfully')
           }
         });
     } else {
       this.showLoginErorrMessage = 'provide all details';
-        this.showLoginErorr = true;
-        setTimeout(() => {
-          this.showLoginErorr = false;
-        }, 3000);
+      this.showLoginErorr = true;
+      setTimeout(() => {
+        this.showLoginErorr = false;
+      }, 3000);
     }
   }
 }
