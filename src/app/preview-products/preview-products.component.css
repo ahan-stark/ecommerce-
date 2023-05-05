@@ -282,3 +282,8 @@ button{
     font-weight: 600;
     margin-left: 38%;
 }
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

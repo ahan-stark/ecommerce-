@@ -6,7 +6,7 @@
 }
 
 .log{
-    background: rgb(221, 2, 2);
+    background: #00424c;
 }
 h3{
     color: aliceblue;
@@ -24,7 +24,7 @@ h3{
 button{
     font-size: 12px;
     width: 125px;
-    background: rgb(221, 2, 2);
+    background: #00424c;
     color: aliceblue;
 }
 
@@ -34,4 +34,7 @@ button{
 
 .btn2{
     margin-left: 5%;
+}
+h3{
+    text-align: center;
 }
