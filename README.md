@@ -1,27 +1,36 @@
-# Ecommerce
+Introduction 
+    • The Ecommerce Application is a web-based platform built using Angular, Spring Boot, and MySQL. It allows users to register, login, browse products, add them to the cart, place orders, and utilize the Super Cart feature to track product prices and receive notifications when the desired price is reached. This document serves as a comprehensive guide to understanding and utilizing the application.
+Registration and Login 
+  2.1 Registration
+    • New users can register by providing their personal information such as name, email address, and password.
+    • Upon successful registration, users are granted a unique account in the system.
+  2.2 Login
+    • Registered users can log in using their email address and password.
+    • After successful login, users gain access to their personalized account.
+Product Catalog
+    • Users can browse the product catalog to view available products.
+    • Product listings include details such as name, description, price, and an option to add the product to the cart.
+    • Filters and search functionality can be used to narrow down product options.
+Cart Management
+    • Users can add products to their cart while browsing the catalog.
+    • The cart displays the selected products, along with their quantities and prices.
+    • Users can update the quantity of products or remove them from the cart.
+    • The cart also provides a checkout option to place an order.
+Order Placement
+    • Users can proceed to place an order from the cart.
+    • They need to provide their shipping information, including address and contact details.
+    • Once the order is confirmed, the application generates an order ID for tracking purposes.
+Super Cart and Price Tracking
+    • Users can choose to add a product to the Super Cart.
+    • In the Super Cart, users can specify their desired price for the product.
+    • The application continuously monitors the product's price.
+    • If the product's price falls below the desired price, the user is notified via email.
+Automatic Order Placement
+    • If the user does not purchase the product after being notified, the application automatically places an order on their behalf.
+    • A specific time limit is set after the notification for the user to take action.
+    • If the user fails to make a purchase within the specified time, the order is generated automatically.
+Technology Stack
+    • Front-end: Angular
+    • Back-end: Spring Boot
+    • Database: MySQL
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.3.
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
